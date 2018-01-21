@@ -5,6 +5,13 @@
   "author": "Bruno Carvalho de Araujo <brunocarvalhodearaujo@gmail.com>",
   "license": "MIT",
   "main": "src/index.js",
+  "repository": {
+    "url": "https://github.com/brunocarvalhodearaujo/xtream-codes.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/brunocarvalhodearaujo/xtream-codes/issues"
+  },
   "dependencies": {
     "lodash.omit": "^4.5.0",
     "lodash.pickby": "^4.6.0",
