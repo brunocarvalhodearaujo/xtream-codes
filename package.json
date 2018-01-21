@@ -1,0 +1,14 @@
+{
+  "name": "xtream-codes",
+  "version": "0.0.0",
+  "description": "xtream-codes javascript api for NodeJS",
+  "author": "Bruno Carvalho de Araujo <brunocarvalhodearaujo@gmail.com>",
+  "license": "MIT",
+  "main": "src/index.js",
+  "dependencies": {
+    "lodash.omit": "^4.5.0",
+    "lodash.pickby": "^4.6.0",
+    "node-fetch": "^1.7.3",
+    "query-string": "^5.0.1"
+  }
+}
