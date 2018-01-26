@@ -33,7 +33,9 @@ class Player {
     return fetch(`${this.config.baseUrl}/player_api.php?${qs.stringify(query)}`)
       .then(T => T.json())
       .then(data => {
-        if (action && data.user_info.status === 'Disabled') {
+        if (action && data.hasOwnProperty('user') &&
+          data.user.hasOwnProperty('status') &&
+          data.user_info.status === 'Disabled') {
           throw new Error('account disabled')
         }
 
