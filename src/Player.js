@@ -50,7 +50,7 @@ class Player {
           throw new Error('authentication error')
         }
 
-        return omit(response.user_info, 'password', 'message', 'auth')
+        return response.user_info
       })
   }
 
