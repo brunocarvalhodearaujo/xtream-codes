@@ -1,4 +1,4 @@
-const { Player } = require('./Player')
+const Player = require('./Player')
 
 Object.defineProperty(exports, '__esModule', { value: true })
 

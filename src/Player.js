@@ -15,8 +15,15 @@ class Player {
   /**
    * @param {{ baseUrl: string, auth: { username: string, password: string } }} config
    */
-  constructor (config) {
+  constructor (config = {}) {
     this.config = config
+  }
+
+  /**
+   * @param {{ username: string, password: string }} user
+   */
+  set auth (user) {
+    this.config.auth = user
   }
 
   /**
@@ -115,4 +122,4 @@ class Player {
   }
 }
 
-module.exports = { Player }
+module.exports = Player
