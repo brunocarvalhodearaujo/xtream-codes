@@ -13,7 +13,6 @@
     "url": "https://github.com/brunocarvalhodearaujo/xtream-codes/issues"
   },
   "dependencies": {
-    "lodash.omit": "^4.5.0",
     "lodash.pickby": "^4.6.0",
     "node-fetch": "^1.7.3",
     "query-string": "^5.0.1"

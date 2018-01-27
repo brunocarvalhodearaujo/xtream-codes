@@ -1,6 +1,5 @@
 const fetch = require('node-fetch')
 const qs = require('query-string')
-const omit = require('lodash.omit')
 const pickBy = require('lodash.pickby')
 
 /**
