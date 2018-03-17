@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 const qs = require('query-string')
 const pickBy = require('lodash.pickby')
+const Promise = require('bluebird')
 
 /**
  * @version 2.x
@@ -36,7 +37,8 @@ class Player {
   execute (action, filter) {
     const query = pickBy({ ...this.config.auth, action, ...filter })
 
-    return fetch(`${this.config.baseUrl}/player_api.php?${qs.stringify(query)}`)
+    return Promise.resolve()
+      .then(() => fetch(`${this.config.baseUrl}/player_api.php?${qs.stringify(query)}`))
       .then(T => T.json())
       .then(data => {
         if (action && data.hasOwnProperty('user') &&
