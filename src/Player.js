@@ -14,17 +14,25 @@ const Promise = require('bluebird')
  */
 class Player {
   /**
-   * @param {{ baseUrl: string, auth: { username: string, password: string } }} config
+   * @param {{ baseUrl: string, auth: { username: string, password: string } }} [config]
    */
   constructor (config = {}) {
     this.config = config
   }
 
   /**
-   * @param {{ username: string, password: string }} user
+   * @param {string} baseUrl
    */
-  set auth (user) {
-    this.config.auth = user
+  setBaseUrl (baseUrl) {
+    this.config.baseUrl = baseUrl
+  }
+
+  /**
+   * @param {string} username
+   * @param {string} password
+   */
+  setAuth (username, password) {
+    this.config.auth = { username, password }
   }
 
   /**
