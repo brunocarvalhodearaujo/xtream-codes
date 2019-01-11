@@ -1,5 +1,5 @@
 const fetch = require('node-fetch')
-const qs = require('query-string')
+const qs = require('querystring')
 const pickBy = require('lodash.pickby')
 const Promise = require('bluebird')
 
@@ -52,7 +52,7 @@ class Player {
         if (action && data.hasOwnProperty('user') &&
           data.user.hasOwnProperty('status') &&
           data.user_info.status === 'Disabled') {
-          throw new Error('account disabled')
+          return Promise.reject(new Error('account disabled'))
         }
 
         return data
@@ -63,7 +63,7 @@ class Player {
     return this.execute()
       .then(response => {
         if (response.user_info.auth === 0) {
-          throw new Error('authentication error')
+          return Promise.reject(new Error('authentication error'))
         }
 
         return response.user_info
@@ -99,13 +99,13 @@ class Player {
    */
   getVODInfo (id) {
     if (!id) {
-      throw new Error('Vod Id not defined')
+      return Promise.reject(new Error('Vod Id not defined'))
     }
 
     return this.execute('get_vod_info', { vod_id: id })
       .then(T => {
         if (T.hasOwnProperty('info') && T.info.length === 0) {
-          throw new Error(`vod with id: ${id} not found`)
+          return Promise.reject(new Error(`vod with id: ${id} not found`))
         }
 
         return T
