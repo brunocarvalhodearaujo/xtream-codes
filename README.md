@@ -16,6 +16,8 @@ const player = new Player({
   }
 })
 
+player.baseURL = 'http://server:port'
+
 // retrieve account line information
 player.getAccountInfo()
   .then(console.log)

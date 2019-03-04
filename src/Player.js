@@ -12,7 +12,7 @@ const Promise = require('bluebird')
  * @see https://linuxsat-support.com/thread/124526-php-example-to-get-custom-playlist-from-xtream-codes-api-with-pretty-url-and-eas/
  * @see https://forum.xtream-codes.com/topic/3493-api-create-usersmags-view-offlineonline-streams-startstop-streams-addremove-credits-and-more/
  */
-class Player {
+module.exports = class Player {
   /**
    * @param {{ baseUrl: string, auth: { username: string, password: string } }} [config]
    */
@@ -21,10 +21,14 @@ class Player {
   }
 
   /**
-   * @param {string} baseUrl
+   * @param {string} baseURL
    */
-  setBaseUrl (baseUrl) {
-    this.config.baseUrl = baseUrl
+  setBaseURL (baseURL) {
+    if (!baseURL) {
+      throw new Error('baseURL must be null')
+    }
+
+    this.config.baseUrl = baseURL
   }
 
   /**
@@ -131,5 +135,3 @@ class Player {
     return this.execute('get_simple_data_table', { stream_id: id })
   }
 }
-
-module.exports = Player
