@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+require('fetch-everywhere')
 const qs = require('querystring')
 const pickBy = require('lodash.pickby')
 const Promise = require('bluebird')
@@ -12,7 +12,7 @@ const Promise = require('bluebird')
  * @see https://linuxsat-support.com/thread/124526-php-example-to-get-custom-playlist-from-xtream-codes-api-with-pretty-url-and-eas/
  * @see https://forum.xtream-codes.com/topic/3493-api-create-usersmags-view-offlineonline-streams-startstop-streams-addremove-credits-and-more/
  */
-module.exports = class Player {
+class Player {
   /**
    * @param {{ baseUrl: string, auth: { username: string, password: string } }} [config]
    */
@@ -135,3 +135,5 @@ module.exports = class Player {
     return this.execute('get_simple_data_table', { stream_id: id })
   }
 }
+
+module.exports = { Player }
